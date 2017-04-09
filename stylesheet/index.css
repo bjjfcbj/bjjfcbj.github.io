@@ -1,0 +1,89 @@
+    /*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+    
+    html,
+    body {
+        overflow - x: hidden;
+        /* Prevent scroll on narrow devices */
+    }
+    
+    body {
+        padding - top: 70 px;
+    }
+    
+    footer {
+        padding: 30 px 0;
+    }
+    
+    #tabaokuosuoyou {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+    
+    #tabushi {
+        width: 88px;
+        height: auto;
+        position: fixed;
+        top: 85%;
+        right: 45px;
+        margin-top: -135px;
+    }
+    
+    #tabushi ul {
+        display: block;
+        list-style: none
+    }
+    
+    #tabushi ul li a {
+        width: 88px;
+        height: 54px;
+        line-height: 54px;
+        text-align: center;
+        background-color: #fff;
+        color: #32c96a;
+        display: block
+    }
+    /*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+    
+    @media screen and(max - width: 767 px) {
+        .row - offcanvas {
+            position: relative;
+            - webkit - transition: all .25 s ease - out;
+            - o - transition: all .25 s ease - out;
+            transition: all .25 s ease - out;
+        }
+        .row - offcanvas - right {
+            right: 0;
+        }
+        .row - offcanvas - left {
+            left: 0;
+        }
+        .row - offcanvas - right .sidebar - offcanvas {
+            right: -50 %;
+            /* 6 columns */
+        }
+        .row - offcanvas - left .sidebar - offcanvas {
+            left: -50 %;
+            /* 6 columns */
+        }
+        .row - offcanvas - right.active {
+            right: 50 %;
+            /* 6 columns */
+        }
+        .row - offcanvas - left.active {
+            left: 50 %;
+            /* 6 columns */
+        }
+        .sidebar - offcanvas {
+            position: absolute;
+            top: 0;
+            width: 50 %;
+            /* 6 columns */
+        }
+    }
