@@ -16,13 +16,7 @@
     footer {
         padding: 30 px 0;
     }
-    
-    #tabaokuosuoyou {
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
-    }
-    
+
     #tabushi {
         width: 88px;
         height: auto;
@@ -45,6 +39,14 @@
         background-color: #fff;
         color: #32c96a;
         display: block
+    }
+
+    #tabushi ul li a img{
+        width: 70%;
+    }
+
+    #tabushi ul li a:hover img{
+        width: 100%;
     }
     /*
  * Off Canvas
