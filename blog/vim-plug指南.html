@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>/media/d/HAHA/vim-plug指南.html</title>
+<meta name="Generator" content="Vim/7.4">
+<meta name="plugin-version" content="vim7.4_v2">
+<meta name="syntax" content="none">
+<meta name="settings" content="number_lines,use_css,pre_wrap,no_foldcolumn,expand_tabs,line_ids,prevent_copy=">
+<meta name="colorscheme" content="vividchalk">
+<style type="text/css">
+<!--
+pre { white-space: pre-wrap; font-family: monospace; color: #dadada; background-color: #000000; }
+body { font-family: monospace; color: #dadada; background-color: #000000; }
+* { font-size: 1em; }
+.LineNr { color: #ffffff; background-color: #080808; padding-bottom: 1px; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+
+/* function to open any folds containing a jumped-to line before jumping to it */
+function JumpToLine()
+{
+  var lineNum;
+  lineNum = window.location.hash;
+  lineNum = lineNum.substr(1); /* strip off '#' */
+
+  if (lineNum.indexOf('L') == -1) {
+    lineNum = 'L'+lineNum;
+  }
+  lineElem = document.getElementById(lineNum);
+  /* Always jump to new location even if the line was hidden inside a fold, or
+   * we corrected the raw number to a line ID.
+   */
+  if (lineElem) {
+    lineElem.scrollIntoView(true);
+  }
+  return true;
+}
+if ('onhashchange' in window) {
+  window.onhashchange = JumpToLine;
+}
+
+-->
+</script>
+</head>
+<body onload='JumpToLine();'>
+<pre id='vimCodeElement'>
+<span id="L1" class="LineNr"> 1 </span>首先在命令行运行命令：
+<span id="L2" class="LineNr"> 2 </span>        sudo apt-get update;
+<span id="L3" class="LineNr"> 3 </span>
+<span id="L4" class="LineNr"> 4 </span>然后安装ctags与astyle软件
+<span id="L5" class="LineNr"> 5 </span>        sudo apt-get install exuberant-ctags;
+<span id="L6" class="LineNr"> 6 </span>        sudo apt-get install astyle;
+<span id="L7" class="LineNr"> 7 </span>
+<span id="L8" class="LineNr"> 8 </span>安装完成后：
+<span id="L9" class="LineNr"> 9 </span>
+<span id="L10" class="LineNr">10 </span>    在主目录下找到 .vim目录;
+<span id="L11" class="LineNr">11 </span>    在.vim目录下添加autoload目录;
+<span id="L12" class="LineNr">12 </span>        将plug.vim文件放入autoload目录下(即～/.vim/autoload/);
+<span id="L13" class="LineNr">13 </span>
+<span id="L14" class="LineNr">14 </span>    再将.vimrc文件直接放至主目录;
+<span id="L15" class="LineNr">15 </span>
+<span id="L16" class="LineNr">16 </span>    用vim .vimrc命令打开.vimrc文件，运行命令 :PlugInstall;
+<span id="L17" class="LineNr">17 </span>        plug插件会自动运行安装插件;
+<span id="L18" class="LineNr">18 </span>        按提示进行输入（如shift+r 进行retry，或按 q 退出）;
+<span id="L19" class="LineNr">19 </span>
+<span id="L20" class="LineNr">20 </span>
+<span id="L21" class="LineNr">21 </span>配置基本已经完善，可依喜好进行微调。
+<span id="L22" class="LineNr">22 </span>
+<span id="L23" class="LineNr">23 </span>
+<span id="L24" class="LineNr">24 </span>&lt;F2&gt; 打开/关闭 nerdtree(u到上一级目录，shift+c进入目录，i，s，t，T打开文件)
+<span id="L25" class="LineNr">25 </span>&lt;F8&gt; 打开/关闭 tagbar
+<span id="L26" class="LineNr">26 </span>&lt;F10&gt; 格式化（vim自带的格式化命令 gg=G 也很好用）
+<span id="L27" class="LineNr">27 </span>&lt;F12&gt; 保存（因为syntastic查错是在打开文件与保存文件时进行，所以查错要按&lt;F12&gt;进行触发，等于 :w 命令）
+<span id="L28" class="LineNr">28 </span>
+<span id="L29" class="LineNr">29 </span>在大括号内可以使用空格键进行代码的折叠;
+<span id="L30" class="LineNr">30 </span>上侧的状态栏，双击可以在新标签页打开未命名的新文件;
+<span id="L31" class="LineNr">31 </span>
+<span id="L32" class="LineNr">32 </span>============================
+<span id="L33" class="LineNr">33 </span>！！！以上为快速使用说明||||
+<span id="L34" class="LineNr">34 </span>============================
+<span id="L35" class="LineNr">35 </span>
+<span id="L36" class="LineNr">36 </span>
+<span id="L37" class="LineNr">37 </span>vim 的使用简介
+<span id="L38" class="LineNr">38 </span>
+<span id="L39" class="LineNr">39 </span>普通模式下：
+<span id="L40" class="LineNr">40 </span>    h,j,k,l分别代表左下右上四个方向的光标移动（你当然也可以使用方向键）；
+<span id="L41" class="LineNr">41 </span>        如果你想快速移动光标，可以在hjkl四个键前加上数字，例如 12j即向下移动12行；
+<span id="L42" class="LineNr">42 </span>
+<span id="L43" class="LineNr">43 </span>    i,a,I,A,o,O分别对应着进入 当前光标位置前，当前光标位置后，行首，行尾,在当前行之上添加一行，在当前行之下添加一行 的输入；
+<span id="L44" class="LineNr">44 </span>        很多人设置了自动缩进，但vim是自动删除空行的tab的，这时候你可以使用cc来进行带自动缩进的输入，但是如果你在非空行使用cc，它会首先将当前行变成空行；
+<span id="L45" class="LineNr">45 </span>    v，ctrl+v进入选择模式(选择模式下可以使用数字加方向进行快速移动)
+<span id="L46" class="LineNr">46 </span>
+<span id="L47" class="LineNr">47 </span>    保存命令:w
+<span id="L48" class="LineNr">48 </span>    退出命令:q
+<span id="L49" class="LineNr">49 </span>    保存退出:wq或:x(:x 命令在未修改文件情况下不会修改文件的修改时间)
+<span id="L50" class="LineNr">50 </span>    加密命令:X (大写的！大写的！大写的！解密使用':set key= ',后面有空格！！！，然后保存)
+<span id="L51" class="LineNr">51 </span>    帮助命令:h (显示vim的帮助文档，里面有vim的使用说明，要常用！！！)
+<span id="L52" class="LineNr">52 </span>
+<span id="L53" class="LineNr">53 </span>
+<span id="L54" class="LineNr">54 </span>vim快捷使用
+<span id="L55" class="LineNr">55 </span>    gg: 跳至文件首；(可以与数字连用，例：22gg即跳至第22行)
+<span id="L56" class="LineNr">56 </span>    G： 跳至文件尾；
+<span id="L57" class="LineNr">57 </span>    zz: 使当前行移至窗口中央
+<span id="L58" class="LineNr">58 </span>    0: 跳至行首
+<span id="L59" class="LineNr">59 </span>    $: 跳至行尾
+<span id="L60" class="LineNr">60 </span>    ^: 跳至行首第一个非零的字符
+<span id="L61" class="LineNr">61 </span>    %: 跳至匹配的括号
+<span id="L62" class="LineNr">62 </span>    (: 跳至上一个块({}括号内)的文件行（当光标在括号上时！！）
+<span id="L63" class="LineNr">63 </span>    ): 跳至下一个块的文件行
+<span id="L64" class="LineNr">64 </span>
+<span id="L65" class="LineNr">65 </span>vim有趣的使用
+<span id="L66" class="LineNr">66 </span>    ggg?G 进行字母转换加密，解密采用同样的输入；
+<span id="L67" class="LineNr">67 </span>    命令 :h 42 有彩蛋；
+</pre>
+</body>
+</html>
+<!-- vim: set foldmethod=manual : -->
